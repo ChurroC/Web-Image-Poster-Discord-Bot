@@ -1,10 +1,9 @@
-(async () => {
-    const colorPicker = document.createElement("input");
-    colorPicker.type = "color";
-    const { color } = await chrome.storage.sync.get('color');
-    colorPicker.value = color;
-    colorPicker.addEventListener('input', event => {
-        chrome.storage.sync.set({ 'color': event.target.value });
-    })
-    document.body.insertBefore(colorPicker, document.body.firstChild);
-})();
+async function saveServer() {
+    const serverId = document.getElementById("serverId").value;
+    if (serverId.trim().length === 0) return alert("Please enter a server id");
+    await chrome.storage.sync.set({ serverId });
+    document.getElementById('message').innerText = "Server id saved";
+    console.log('done')
+}
+
+document.getElementById("submit").addEventListener('click', saveServer);

@@ -20,5 +20,4 @@ changeColor.addEventListener("click", async () => {
       target: { tabId: tab.id },
       function: setPageBackgroundColor,
     });
-  });
-  
+});

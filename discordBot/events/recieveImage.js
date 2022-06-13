@@ -20,7 +20,6 @@ module.exports = {
             const channel = guild.channels.cache.get(databaseGuild.channelPostId)
             if (!(channel)) return res.send(`Channel error redo /setup or ${prefix}setup with the bot.`);
             await channel.send({ files: [{ attachment: image.buffer }] })
-            console.log('lnjk')
 
             res.send('Done')
         } catch (err) {
