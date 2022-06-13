@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="options.js" defer></script>
+        <script src="./popup.js" defer></script>
+        <link rel="stylesheet" href="./popup.css">
     </head>
     <body>
-        <form action="https://Web-Image-Poster-Discord-Bot.charanchandran.repl.co/new-message" method="POST">
-            <label for="serverId">Server Id:</label>
-            <input type="text" id="serverId" name="server" required><br><br>
-            <label for="image">Image:</label>
-            <input type="file" id="image" name="image" required><br><br>
-            <input type="submit" value="Submit">
-        </form>
-        <p>Choose a different background color!</p>
+        <img id="image" alt="Last Image">
+        <div id="responseStatus"></div>
+        <div id="responseText"></div>
     </body>
 </html>

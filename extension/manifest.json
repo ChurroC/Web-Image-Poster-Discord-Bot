@@ -1,6 +1,6 @@
 {
     "name": "Image Poster",
-    "description": "You can right click an image and send to your discord.",
+    "description": "You can right click an image and send to your discord server.",
     "version": "1.0",
     "manifest_version": 3,
     "permissions": ["storage", "activeTab", "scripting", "contextMenus"],

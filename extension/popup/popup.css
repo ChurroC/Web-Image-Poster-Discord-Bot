@@ -1,13 +1,19 @@
-button {
-    height: 30px;
-    width: 30px;
-    outline: none;
-    margin: 10px;
-    border: none;
-    border-radius: 2px;
+html {
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
 }
 
-button.current {
-    box-shadow: 0 0 0 2px white,
-                0 0 0 4px black;
+img {
+    margin: auto;
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 90%;
+    max-width: 100%;
+}
+
+div {
+    text-align: center;
+    word-wrap: break-word;
 }

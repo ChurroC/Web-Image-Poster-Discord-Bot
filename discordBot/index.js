@@ -4,10 +4,9 @@ const mongoose = require('mongoose');
 const db = require('./models/members');
 const { Client, Collection, Intents } = require('discord.js');
 const express = require('express')
-const multer = require('multer')
+const cors = require('cors')
 
 const app = express()
-const upload = multer()
 
 //Client
 //This is the client that will be used to interact with the Discord API.
@@ -81,12 +80,14 @@ for (const file of eventFiles) {
 
 PORT = process.env.PORT || 8080
 
+app.use(cors())
+
 app.get('/', (req, res) => {
     res.send('Hi')
 })
 
-app.post('/new-message', upload.single('image'), (req, res) => {
-    const image = req.file
+app.post('/new-message', express.json(), (req, res) => {
+	const image = req.body.image
     const server = req.body.server
     client.emit('recieveImage', client, res, image, server)
 });
