@@ -23,10 +23,14 @@ module.exports = {
 			
 			if (image.slice(0, 22) === 'data:image/png;base64,') {
 				image = new Buffer.from(image.slice(22,image.length), 'base64')
+            	await channel.send({ files: [{ attachment: image }] })
+			} else if (image.slice(0, 23) === 'data:image/jpeg;base64,') {
+				image = new Buffer.from(image.slice(23,image.length), 'base64')
+            	await channel.send({ files: [{ attachment: image }] })
+			} else {
+            	await channel.send(image)
 			}
-            await channel.send({ files: [{ attachment: image }] })
-
-            res.status(200).send('Done')
+            res.status(200).send('Finished Posting')
         } catch (err) {
             res.send(err)
         }
