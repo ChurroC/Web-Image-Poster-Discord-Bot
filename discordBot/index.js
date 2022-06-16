@@ -89,7 +89,8 @@ app.get('/', (req, res) => {
 app.post('/new-message', express.json(), (req, res) => {
 	const image = req.body.image
     const server = req.body.server
-    client.emit('recieveImage', client, res, image, server)
+    const channel = req.body.channel
+    client.emit('recieveImage', client, res, image, server, channel)
 });
 
 app.listen(PORT, ()=>{console.log(`App listening at port ${PORT}`)})

@@ -32,7 +32,6 @@ module.exports = {
         try {
             command.execute(message, args, client);
         } catch (err) {
-            console.error(err);
             message.reply('there was an error trying to execute that command!');
         }
     }

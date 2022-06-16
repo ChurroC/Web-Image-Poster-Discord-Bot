@@ -9,9 +9,7 @@ const schema = new mongoose.Schema({
     prefix: {
         type: String
     },
-    channelPostId: {
-        type: String
-    }
+    users: []
 })
 
 module.exports = {

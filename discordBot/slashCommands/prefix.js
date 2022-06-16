@@ -12,17 +12,6 @@ module.exports = {
     async execute(interaction, client) {
         const newPrefix = interaction.options.getString('prefix');
         
-        if (!interaction.guild.prefix){ // Load prefix into cache 
-            const guild = await client.database.guilds.findOne({ guildId: interaction.guildId });
-            if (guild) {
-                interaction.guild.prefix = guild.prefix;
-            } else {
-                const newGuild = await client.database.guilds.create({ guildId: interaction.guildId, prefix: '!' })
-                await newGuild.save();
-                interaction.guild.prefix = '!';
-            }
-        }
-        
         if (!newPrefix || newPrefix == interaction.guild.prefix) return interaction.reply({ content: 'You must specify a new prefix!', ephemeral: true });
         if (newPrefix.length > 3) return interaction.reply({ content: 'The prefix must be less than 3 characters!', ephemeral: true });
         
