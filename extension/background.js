@@ -17,8 +17,8 @@ chrome.contextMenus.onClicked.addListener(async (item, tab) => {
         chrome.storage.sync.set({ responseStatus: 'No User Id' });
         return chrome.storage.sync.set({ responseText: 'Go into options to set it.' });
     }
-
-    const response = await fetch('https://Web-Image-Poster-Discord-Bot.charanchandran.repl.co/new-message', {
+    //https://Web-Image-Poster-Discord-Bot.charanchandran.repl.co/
+    const response = await fetch('https://51hcsp.sse.codesandbox.io/new-message', {
         method: 'POST',
         body: JSON.stringify({server: serverId, channel: userId, image: item.srcUrl}),
         headers: {
